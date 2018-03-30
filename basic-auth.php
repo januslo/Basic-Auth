@@ -19,9 +19,9 @@ function json_basic_auth_handler( $user ) {
 	}
 
 	// Check that we're trying to authenticate
-	if ( !isset( $_SERVER['PHP_AUTH_USER'] ) ) {
-		return $user;
-	}
+	//if ( !isset( $_SERVER['PHP_AUTH_USER'] ) ) {
+	//	return $user;
+	//} // we need to authenticate again no matter user already login or not.
 
 	$username = $_SERVER['PHP_AUTH_USER'];
 	$password = $_SERVER['PHP_AUTH_PW'];
