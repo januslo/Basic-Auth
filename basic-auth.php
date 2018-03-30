@@ -14,14 +14,14 @@ function json_basic_auth_handler( $user ) {
 	$wp_json_basic_auth_error = null;
 
 	// Don't authenticate twice
-	if ( ! empty( $user ) ) {
-		return $user;
-	}
-
-	// Check that we're trying to authenticate
-	//if ( !isset( $_SERVER['PHP_AUTH_USER'] ) ) {
+	//if ( ! empty( $user ) ) {
 	//	return $user;
 	//} // we need to authenticate again no matter user already login or not.
+
+	// Check that we're trying to authenticate
+	if ( !isset( $_SERVER['PHP_AUTH_USER'] ) ) {
+		return $user;
+	}
 
 	$username = $_SERVER['PHP_AUTH_USER'];
 	$password = $_SERVER['PHP_AUTH_PW'];
